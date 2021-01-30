@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dynamic-facebook-card/static/css/main.78ebaeeb.chunk.css",
-    "main.js": "/dynamic-facebook-card/static/js/main.165a15ee.chunk.js",
-    "main.js.map": "/dynamic-facebook-card/static/js/main.165a15ee.chunk.js.map",
+    "main.js": "/dynamic-facebook-card/static/js/main.912c856a.chunk.js",
+    "main.js.map": "/dynamic-facebook-card/static/js/main.912c856a.chunk.js.map",
     "runtime-main.js": "/dynamic-facebook-card/static/js/runtime-main.cbef0fdb.js",
     "runtime-main.js.map": "/dynamic-facebook-card/static/js/runtime-main.cbef0fdb.js.map",
     "static/css/2.150d169a.chunk.css": "/dynamic-facebook-card/static/css/2.150d169a.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.150d169a.chunk.css",
     "static/js/2.32707c89.chunk.js",
     "static/css/main.78ebaeeb.chunk.css",
-    "static/js/main.165a15ee.chunk.js"
+    "static/js/main.912c856a.chunk.js"
   ]
 }
