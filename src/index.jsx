@@ -3,11 +3,17 @@ import { Form, Col, Button } from "react-bootstrap";
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-var getData = localStorage.getItem('data');
-
 function FbCard() {
-  const [data, setData] = useState([])
-
+  let [data, setData] = useState([])
+  React.useEffect(()=>{
+    const userData = localStorage.getItem('data')
+    if (userData) {
+      setData(JSON.parse(userData))
+    }
+  },[])
+  React.useEffect(()=>{
+    localStorage.setItem('data', JSON.stringify(data))
+  })
   function post(event) {
     event.preventDefault();
     var name = document.getElementById('name').value;
@@ -21,11 +27,9 @@ function FbCard() {
       imgUrl: imgUrl,
       postText: postText
     }
-    console.log(newData)
     setData(previousValue => {
-      return previousValue.concat([newData])
+      return previousValue.concat([newData]);
     })
-    localStorage.setItem('data' ,JSON.stringify(data))
   }
 
   return (
@@ -61,36 +65,36 @@ function FbCard() {
         </div>
       </div>
       {
-      data.map(element => {
-        return <div id="main-card">
-         <div className="container">
-        <div className="row justify-content-center mt-5 " >
-          <div className="col-md-6 fb-card">
-            <div className="row">
-              <div className="col-md-2">
-                <img src={element.profileUrl} alt="profile pic" style={{ width: 40, height: 40 }} />
-              </div>
-              <div className="col-md-10">
-                <p className="name">{element.name}</p>
-                <p className="time">2hr</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-12">
-                <p className="mt-2 mb-2">{element.postText}</p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-12">
-                <img src={element.imgUrl}
-                alt=""  style={{width:"100%",height:"249px"}}/>
+        data.map(element => {
+          return <div id="main-card">
+            <div className="container">
+              <div className="row justify-content-center mt-5 " >
+                <div className="col-md-6 fb-card">
+                  <div className="row">
+                    <div className="col-md-2">
+                      <img src={element.profileUrl} alt="profile pic" style={{ width: 40, height: 40 }} />
+                    </div>
+                    <div className="col-md-10">
+                      <p className="name">{element.name}</p>
+                      <p className="time">2hr</p>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <p className="mt-2 mb-2">{element.postText}</p>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <img src={element.imgUrl}
+                        alt="" style={{ width: "100%", height: "249px" }} />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      </div>
-      })}
+        })}
     </div>
   );
 }
